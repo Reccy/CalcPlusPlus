@@ -18,14 +18,13 @@ std::vector<Token> Tokenizer::tokenize() {
 };
 
 Token Tokenizer::build_token() {
-	std::string full_raw_token = build_full_raw_token();
-	return Token();
+	return Token(build_full_raw_token());
 };
 
 std::string Tokenizer::build_full_raw_token() {
 	std::string::iterator forward_it = this->raw_token_it;
 
-	while (forward_it != this->raw_tokens->end() && (std::isdigit(*forward_it) || *forward_it == '.')) {
+	while (forward_it != this->raw_tokens->end() && is_raw_numeric_token(forward_it)) {
 		forward_it++;
 	}
 
@@ -35,9 +34,11 @@ std::string Tokenizer::build_full_raw_token() {
 
 	std::string full_raw_token = std::string(this->raw_token_it, forward_it);
 
-	std::cout << "BUILDING TOKEN: " << full_raw_token << "\n";
-
 	this->raw_token_it = forward_it;
 
 	return full_raw_token;
+}
+
+bool Tokenizer::is_raw_numeric_token(std::string::iterator forward_it) {
+	return std::isdigit(*forward_it) || *forward_it == '.';
 }
