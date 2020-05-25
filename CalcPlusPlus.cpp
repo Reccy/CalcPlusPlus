@@ -21,7 +21,6 @@ void print_program_intro() {
         << "\n"
         << "\n"
         << "Type 'EXIT' to exit"
-        << "\n"
         << std::endl;
 };
 
@@ -34,6 +33,7 @@ bool validate_result(std::vector<Token> result) {
 
 std::string read_input() {
     std::cout
+        << "\n"
         << "Enter a Maths equation to solve\n"
         << "> ";
 
