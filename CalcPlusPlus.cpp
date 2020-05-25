@@ -7,6 +7,8 @@
 #define PROG_AUTHOR "Aaron Meaney"
 #define PROG_COMPILE_TIMESTAMP __TIMESTAMP__
 
+#define EXIT_STRING "exit"
+
 void print_program_intro() {
     std::cout
         << PROG_NAME
@@ -20,7 +22,7 @@ void print_program_intro() {
         << PROG_COMPILE_TIMESTAMP
         << "\n"
         << "\n"
-        << "Type 'EXIT' to exit"
+        << "Type '" << EXIT_STRING << "' to end program"
         << std::endl;
 };
 
@@ -45,7 +47,7 @@ std::string read_input() {
 int main_loop() {
     std::string input = read_input();
 
-    if (input == "EXIT") {
+    if (input == EXIT_STRING) {
         std::cout << "Thanks for using " << PROG_NAME << std::endl;
         return false;
     }
@@ -62,7 +64,6 @@ int main_loop() {
 
     if (!validate_result(result)) {
         std::cout << "Tokenizer failed. Invalid tokens detected." << std::endl;
-        return false;
     }
 
     return true;

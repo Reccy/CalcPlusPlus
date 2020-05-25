@@ -11,24 +11,29 @@ std::vector<Token> Tokenizer::tokenize() {
 	this->raw_token_it = this->raw_tokens->begin();
 
 	while (this->raw_token_it != this->raw_tokens->end()) {
-		tokens.push_back(build_token());
+		std::string raw_token = build_full_raw_token();
+		
+		if (raw_token.find_first_not_of(' ')) {
+			break;
+		}
+
+		Token token = Token(raw_token);
+		tokens.push_back(token);
 	}
 
 	return tokens;
 };
 
-Token Tokenizer::build_token() {
-	return Token(build_full_raw_token());
-};
-
 std::string Tokenizer::build_full_raw_token() {
+	ff_to_non_whitespace();
+
 	std::string::iterator forward_it = this->raw_token_it;
 
 	while (forward_it != this->raw_tokens->end() && is_raw_numeric_token(forward_it)) {
 		forward_it++;
 	}
 
-	if (this->raw_token_it == forward_it) {
+	if (forward_it != this->raw_tokens->end() && this->raw_token_it == forward_it) {
 		forward_it++;
 	}
 
@@ -37,8 +42,14 @@ std::string Tokenizer::build_full_raw_token() {
 	this->raw_token_it = forward_it;
 
 	return full_raw_token;
-}
+};
 
 bool Tokenizer::is_raw_numeric_token(std::string::iterator forward_it) {
 	return std::isdigit(*forward_it) || *forward_it == '.';
-}
+};
+
+void Tokenizer::ff_to_non_whitespace() {
+	while (this->raw_token_it != this->raw_tokens->end() && std::isspace(*this->raw_token_it)) {
+		this->raw_token_it++;
+	}
+};
