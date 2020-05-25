@@ -65,9 +65,19 @@ bool inline Token::compare_raw_token(std::string token) const {
 };
 
 bool Token::raw_token_is_numeric() const {
+	int decimal_point_count = 0;
+
 	for (char const& token_char : *this->raw_token) {
 		if (!std::isdigit(token_char) && token_char != '.')
 			return false;
+
+		if (token_char == '.') {
+			decimal_point_count++;
+		}
+
+		if (decimal_point_count > 1) {
+			return false;
+		}
 	}
 	
 	return true;
