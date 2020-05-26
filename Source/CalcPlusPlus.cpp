@@ -26,8 +26,8 @@ void print_program_intro() {
         << std::endl;
 };
 
-bool validate_result(std::vector<Token> result) {
-    if (std::any_of(result.begin(), result.end(), [](auto t) { return !t.is_valid(); })) {
+bool validate_result(std::vector<Token*> result) {
+    if (std::any_of(result.begin(), result.end(), [](Token* t) { return !t->is_valid(); })) {
         return false;
     };
     return true;
@@ -56,10 +56,10 @@ int main_loop() {
 
     Tokenizer t(input);
 
-    std::vector<Token> result = t.tokenize();
+    std::vector<Token*> result = t.tokenize();
 
-    for (Token const& token : result) {
-        std::cout << token.to_string() << "\n";
+    for (Token* const& token : result) {
+        std::cout << token->to_string() << "\n";
     }
 
     if (!validate_result(result)) {

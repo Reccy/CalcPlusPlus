@@ -5,10 +5,12 @@ Tokenizer::Tokenizer(std::string raw_tokens) {
 	this->raw_token_it = this->raw_tokens->begin();
 };
 
-std::vector<Token> Tokenizer::tokenize() {
-	std::vector<Token> tokens;
+std::vector<Token*> Tokenizer::tokenize() {
+	std::vector<Token*> tokens;
 
 	this->raw_token_it = this->raw_tokens->begin();
+
+	TokenFactory tf;
 
 	while (this->raw_token_it != this->raw_tokens->end()) {
 		std::string raw_token = build_full_raw_token();
@@ -17,8 +19,7 @@ std::vector<Token> Tokenizer::tokenize() {
 			break;
 		}
 
-		Token token = Token(raw_token);
-		tokens.push_back(token);
+		tokens.push_back(tf.build(raw_token));
 	}
 
 	return tokens;

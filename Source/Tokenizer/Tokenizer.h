@@ -4,12 +4,13 @@
 #include <string>
 #include <iostream>
 #include "Token.h"
+#include "TokenFactory.h"
 
 class Tokenizer
 {
 public:
 	Tokenizer(std::string);
-	std::vector<Token> tokenize();
+	std::vector<Token*> tokenize();
 private:
 	std::string build_full_raw_token();
 	bool is_raw_numeric_token(std::string::iterator);

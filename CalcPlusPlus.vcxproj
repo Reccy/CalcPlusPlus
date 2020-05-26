@@ -143,13 +143,33 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Tokenizer\ExponentToken.cpp" />
+    <ClCompile Include="Source\Tokenizer\BracketCloseToken.cpp" />
+    <ClCompile Include="Source\Tokenizer\BracketOpenToken.cpp" />
+    <ClCompile Include="Source\Tokenizer\MultiplyToken.cpp" />
+    <ClCompile Include="Source\Tokenizer\DivideToken.cpp" />
+    <ClCompile Include="Source\Tokenizer\AddToken.cpp" />
+    <ClCompile Include="Source\Tokenizer\MinusToken.cpp" />
+    <ClCompile Include="Source\Tokenizer\NumericToken.cpp" />
+    <ClCompile Include="Source\Tokenizer\InvalidToken.cpp" />
     <ClCompile Include="Source\CalcPlusPlus.cpp" />
     <ClCompile Include="Source\Tokenizer\Token.cpp" />
     <ClCompile Include="Source\Tokenizer\Tokenizer.cpp" />
+    <ClCompile Include="Source\Tokenizer\TokenFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Tokenizer\ExponentToken.h" />
+    <ClInclude Include="Source\Tokenizer\BracketCloseToken.h" />
+    <ClInclude Include="Source\Tokenizer\BracketOpenToken.h" />
+    <ClInclude Include="Source\Tokenizer\MultiplyToken.h" />
+    <ClInclude Include="Source\Tokenizer\DivideToken.h" />
+    <ClInclude Include="Source\Tokenizer\AddToken.h" />
+    <ClInclude Include="Source\Tokenizer\MinusToken.h" />
+    <ClInclude Include="Source\Tokenizer\NumericToken.h" />
+    <ClInclude Include="Source\Tokenizer\InvalidToken.h" />
     <ClInclude Include="Source\Tokenizer\Token.h" />
     <ClInclude Include="Source\Tokenizer\Tokenizer.h" />
+    <ClInclude Include="Source\Tokenizer\TokenFactory.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -16,10 +16,7 @@ public:
 	std::string to_string() const;
 	bool is_valid();
 private:
-	void set_token_type();
-	bool compare_raw_token(std::string) const;
-	bool raw_token_is_numeric() const;
-	std::string token_type_string() const;
+	virtual std::string token_type_string() const = 0;
 
 	TokenType token_type;
 	std::unique_ptr<std::string> raw_token;
