@@ -6,8 +6,6 @@
 #include <algorithm>
 #include <stdexcept>
 
-enum class TokenType { BracketOpen, BracketClose, Power, Multiply, Divide, Add, Subtract, Number, Invalid };
-
 class Token
 {
 public:
@@ -18,6 +16,5 @@ public:
 private:
 	virtual std::string token_type_string() const = 0;
 
-	TokenType token_type;
 	std::unique_ptr<std::string> raw_token;
 };
