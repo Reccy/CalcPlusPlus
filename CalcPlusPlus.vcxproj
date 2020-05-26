@@ -143,25 +143,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AdditionOperator.cpp" />
-    <ClCompile Include="CalcPlusPlus.cpp" />
-    <ClCompile Include="DivisionOperator.cpp" />
-    <ClCompile Include="Expression.cpp" />
-    <ClCompile Include="MultiplicationOperator.cpp" />
-    <ClCompile Include="Operator.cpp" />
-    <ClCompile Include="SubtractionOperator.cpp" />
-    <ClCompile Include="Token.cpp" />
-    <ClCompile Include="Tokenizer.cpp" />
+    <ClCompile Include="Source\CalcPlusPlus.cpp" />
+    <ClCompile Include="Source\Tokenizer\Token.cpp" />
+    <ClCompile Include="Source\Tokenizer\Tokenizer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AdditionOperator.h" />
-    <ClInclude Include="DivisionOperator.h" />
-    <ClInclude Include="Expression.h" />
-    <ClInclude Include="MultiplicationOperator.h" />
-    <ClInclude Include="Operator.h" />
-    <ClInclude Include="SubtractionOperator.h" />
-    <ClInclude Include="Token.h" />
-    <ClInclude Include="Tokenizer.h" />
+    <ClInclude Include="Source\Tokenizer\Token.h" />
+    <ClInclude Include="Source\Tokenizer\Tokenizer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

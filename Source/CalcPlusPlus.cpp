@@ -1,6 +1,6 @@
 #include <iostream>
 #include <sstream>
-#include "Tokenizer.h"
+#include "Tokenizer/Tokenizer.h"
 
 #define PROG_NAME "CalcPlusPlus"
 #define PROG_VERSION "0.1"
