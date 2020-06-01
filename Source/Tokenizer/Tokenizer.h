@@ -5,12 +5,13 @@
 #include <iostream>
 #include "Token.h"
 #include "TokenFactory.h"
+#include "TokenSet.h"
 
 class Tokenizer
 {
 public:
 	Tokenizer(std::string);
-	std::vector<Token*> tokenize();
+	TokenSet tokenize();
 private:
 	std::string build_full_raw_token();
 	bool is_raw_numeric_token(std::string::iterator);

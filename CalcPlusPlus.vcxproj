@@ -156,6 +156,7 @@
     <ClCompile Include="Source\Tokenizer\Token.cpp" />
     <ClCompile Include="Source\Tokenizer\Tokenizer.cpp" />
     <ClCompile Include="Source\Tokenizer\TokenFactory.cpp" />
+    <ClCompile Include="Source\Tokenizer\TokenSet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Tokenizer\ExponentToken.h" />
@@ -170,6 +171,7 @@
     <ClInclude Include="Source\Tokenizer\Token.h" />
     <ClInclude Include="Source\Tokenizer\Tokenizer.h" />
     <ClInclude Include="Source\Tokenizer\TokenFactory.h" />
+    <ClInclude Include="Source\Tokenizer\TokenSet.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

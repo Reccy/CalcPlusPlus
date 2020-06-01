@@ -26,13 +26,6 @@ void print_program_intro() {
         << std::endl;
 };
 
-bool validate_result(std::vector<Token*> result) {
-    if (std::any_of(result.begin(), result.end(), [](Token* t) { return !t->is_valid(); })) {
-        return false;
-    };
-    return true;
-};
-
 std::string read_input() {
     std::cout
         << "\n"
@@ -56,14 +49,12 @@ int main_loop() {
 
     Tokenizer t(input);
 
-    std::vector<Token*> result = t.tokenize();
+    TokenSet token_set = t.tokenize();
 
-    for (Token* const& token : result) {
-        std::cout << token->to_string() << "\n";
-    }
+    std::cout << token_set.str() << "\n";
 
-    if (!validate_result(result)) {
-        std::cout << "Tokenizer failed. Invalid tokens detected." << std::endl;
+    if (!token_set.is_valid()) {
+        std::cout << "Invalid tokens detected." << std::endl;
     }
 
     return true;
