@@ -1,5 +1,12 @@
 #include "TokenSet.h"
 
+TokenSet::TokenSet(std::queue<Token*> tokens) {
+    while (!tokens.empty()) {
+        this->tokens.push_back(tokens.front());
+        tokens.pop();
+    }
+}
+
 TokenSet::TokenSet(std::vector<Token*> tokens) {
 	this->tokens = tokens;
 };
@@ -19,4 +26,12 @@ std::string TokenSet::str() {
     }
 
     return ss.str();
-}
+};
+
+std::vector<Token*>::iterator TokenSet::begin() {
+    return this->tokens.begin();
+};
+
+std::vector<Token*>::iterator TokenSet::end() {
+    return this->tokens.end();
+};

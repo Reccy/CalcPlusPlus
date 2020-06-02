@@ -1,6 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include "Tokenizer/Tokenizer.h"
+#include "Parser/Parser.h"
 
 #define PROG_NAME "CalcPlusPlus"
 #define PROG_VERSION "0.1"
@@ -23,7 +24,7 @@ void print_program_intro() {
         << "\n"
         << "\n"
         << "Type '" << EXIT_STRING << "' to end program"
-        << std::endl;
+        << "\n";
 };
 
 std::string read_input() {
@@ -41,7 +42,7 @@ int main_loop() {
     std::string input = read_input();
 
     if (input == EXIT_STRING) {
-        std::cout << "Thanks for using " << PROG_NAME << std::endl;
+        std::cout << "Thanks for using " << PROG_NAME << "\n";
         return false;
     }
 
@@ -54,8 +55,16 @@ int main_loop() {
     std::cout << token_set.str() << "\n";
 
     if (!token_set.is_valid()) {
-        std::cout << "Invalid tokens detected." << std::endl;
+        std::cout << "Invalid tokens detected." << "\n";
+        return true;
     }
+
+    std::cout << "Parsing" << "\n";
+
+    Parser parser(token_set);
+    TokenSet parsed_token_set = parser.to_reverse_polish();
+
+    std::cout << parsed_token_set.str() << "\n";
 
     return true;
 }

@@ -57,6 +57,9 @@
     <ClCompile Include="Source\Tokenizer\TokenSet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Parser\Parser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Tokenizer\Token.h">
@@ -96,6 +99,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Tokenizer\TokenSet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Parser\Parser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
