@@ -1,8 +1,9 @@
 #pragma once
-#include "Token.h"
-class MultiplyToken : public Token
+#include "OperatorToken.h"
+class MultiplyToken : public OperatorToken
 {
-	using Token::Token;
+	using OperatorToken::OperatorToken;
 	std::string token_type_string() const override;
+	int precedence() const override;
 };
 

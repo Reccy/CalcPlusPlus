@@ -1,8 +1,10 @@
 #pragma once
-#include "Token.h"
-class BracketOpenToken : public Token
+#include "OperatorToken.h"
+class BracketOpenToken : public OperatorToken
 {
-	using Token::Token;
+public:
+	using OperatorToken::OperatorToken;
 	std::string token_type_string() const override;
+	int precedence() const override;
 };
 
