@@ -35,10 +35,10 @@ int get_operator_precedence(Token* token) {
 		return 1;
 	}
 	else if (typeid(*token) == typeid(ExponentToken)) {
-		return 3;
+		return 2;
 	}
 	else if (typeid(*token) == typeid(BracketCloseToken) || typeid(*token) == typeid(BracketOpenToken)) {
-		return 3;
+		return -1;
 	}
 
 	throw std::runtime_error("Undefined precedence for token");
