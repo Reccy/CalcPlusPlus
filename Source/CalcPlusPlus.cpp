@@ -5,7 +5,7 @@
 #include "Solver/Solver.h"
 
 #define PROG_NAME "CalcPlusPlus"
-#define PROG_VERSION "0.3"
+#define PROG_VERSION "0.4"
 #define PROG_AUTHOR "Aaron Meaney"
 #define PROG_COMPILE_TIMESTAMP __TIMESTAMP__
 

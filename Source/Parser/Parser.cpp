@@ -45,7 +45,7 @@ TokenSet Parser::to_reverse_polish() {
 		else if (dynamic_cast<OperatorToken*>(token)) {
 			OperatorToken* operator_token = dynamic_cast<OperatorToken*>(token);
 
-			while (!operator_stack.empty() && operator_stack.top()->precedence() > operator_token->precedence()) {
+			while (!operator_stack.empty() && operator_stack.top()->precedence() >= operator_token->precedence()) {
 				Token* token_to_push = dynamic_cast<Token*>(operator_stack.top());
 
 				output_queue.push(token_to_push);
