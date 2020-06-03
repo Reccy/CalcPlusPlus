@@ -14,8 +14,17 @@ std::string Solver::solve() {
 		else if (dynamic_cast<OperatorToken*>(token)) {
 			OperatorToken* operator_token = dynamic_cast<OperatorToken*>(token);
 
+			if (token_stack.empty()) {
+				throw SolveException();
+			}
+
 			NumericToken* num1 = token_stack.top();
 			token_stack.pop();
+
+			if (token_stack.empty()) {
+				throw SolveException();
+			}
+
 			NumericToken* num2 = token_stack.top();
 			token_stack.pop();
 
@@ -36,19 +45,19 @@ NumericToken* Solver::perform_operation(OperatorToken* operator_token, NumericTo
 	float result;
 
 	if (dynamic_cast<AddToken*>(operator_token)) {
-		result = num1 + num2;
+		result = num2 + num1;
 	}
 	else if (dynamic_cast<MinusToken*>(operator_token)) {
 		result = num2 - num1;
 	}
 	else if (dynamic_cast<MultiplyToken*>(operator_token)) {
-		result = num1 * num2;
+		result = num2 * num1;
 	}
 	else if (dynamic_cast<DivideToken*>(operator_token)) {
 		result = num2 / num1;
 	}
 	else if (dynamic_cast<ExponentToken*>(operator_token)) {
-		result = pow(num1, num2);
+		result = pow(num2, num1);
 	}
 	else {
 		throw std::runtime_error("Unknown operator token");

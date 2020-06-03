@@ -23,9 +23,19 @@ TokenSet Parser::to_reverse_polish() {
 		else if (dynamic_cast<BracketCloseToken*>(token)) {
 			OperatorToken* operator_token = dynamic_cast<BracketCloseToken*>(token);
 
+			if (!operator_stack.empty() && dynamic_cast<BracketOpenToken*>(operator_stack.top())) {
+				// Empty brackets
+				throw ParseException();
+			}
+
 			while (!operator_stack.empty() && !dynamic_cast<BracketOpenToken*>(operator_stack.top())) {
 				output_queue.push(operator_stack.top());
 				operator_stack.pop();
+
+				if (operator_stack.empty()) {
+					// No Opening Bracket Found
+					throw ParseException();
+				}
 			}
 
 			if (!operator_stack.empty() && dynamic_cast<BracketOpenToken*>(operator_stack.top())) {

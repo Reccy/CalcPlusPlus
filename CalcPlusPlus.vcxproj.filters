@@ -66,9 +66,6 @@
     <ClCompile Include="Source\Solver\Solver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Parser\ParseException.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Tokenizer\Token.h">
@@ -120,6 +117,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Parser\ParseException.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Solver\SolveException.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

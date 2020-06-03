@@ -4,7 +4,7 @@
 class ParseException : public std::exception {
 public:
 	ParseException(std::string m = "exception!") : msg(m) {}
-	~ParseException() throw() {}
+	~ParseException() noexcept {}
 	const char* what() const throw() { return msg.c_str(); }
 
 private:
