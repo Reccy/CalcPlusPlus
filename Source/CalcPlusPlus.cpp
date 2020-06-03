@@ -52,12 +52,21 @@ int main_loop() {
     TokenSet token_set = t.tokenize();
 
     if (!token_set.is_valid()) {
-        std::cout << "Invalid tokens detected." << "\n";
+        std::cout << "Syntax Error" << "\n";
         return true;
     }
 
     Parser parser(token_set);
-    TokenSet parsed_token_set = parser.to_reverse_polish();
+
+    TokenSet parsed_token_set;
+    try {
+        parsed_token_set = parser.to_reverse_polish();
+    }
+    catch (ParseException e) {
+        std::cout << "Syntax Error" << "\n";
+        return true;
+    }
+    
 
     Solver solver(parsed_token_set);
 

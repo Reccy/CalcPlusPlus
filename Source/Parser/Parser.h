@@ -1,6 +1,7 @@
 #pragma once
 #include <queue>
 #include <stack>
+#include "ParseException.h"
 #include "../Tokenizer/TokenSet.h"
 #include "../Tokenizer/Token.h"
 #include "../Tokenizer/NumericToken.h"

@@ -46,8 +46,16 @@ TokenSet Parser::to_reverse_polish() {
 	}
 
 	while (!operator_stack.empty()) {
+		if (dynamic_cast<BracketOpenToken*>(operator_stack.top()) || dynamic_cast<BracketCloseToken*>(operator_stack.top())) {
+			throw ParseException();
+		}
+
 		output_queue.push(operator_stack.top());
 		operator_stack.pop();
+	}
+
+	if (output_queue.empty()) {
+		throw ParseException();
 	}
 
 	return TokenSet(output_queue);
