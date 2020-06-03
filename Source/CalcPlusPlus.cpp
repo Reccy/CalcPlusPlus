@@ -2,9 +2,10 @@
 #include <sstream>
 #include "Tokenizer/Tokenizer.h"
 #include "Parser/Parser.h"
+#include "Solver/Solver.h"
 
 #define PROG_NAME "CalcPlusPlus"
-#define PROG_VERSION "0.1"
+#define PROG_VERSION "0.2"
 #define PROG_AUTHOR "Aaron Meaney"
 #define PROG_COMPILE_TIMESTAMP __TIMESTAMP__
 
@@ -65,6 +66,12 @@ int main_loop() {
     TokenSet parsed_token_set = parser.to_reverse_polish();
 
     std::cout << parsed_token_set.str() << "\n";
+
+    std::cout << "Solving" << "\n";
+
+    Solver solver(parsed_token_set);
+
+    std::cout << solver.solve() << "\n";
 
     return true;
 }

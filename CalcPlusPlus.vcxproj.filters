@@ -63,6 +63,9 @@
     <ClCompile Include="Source\Tokenizer\OperatorToken.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Solver\Solver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Tokenizer\Token.h">
@@ -108,6 +111,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Tokenizer\OperatorToken.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Solver\Solver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

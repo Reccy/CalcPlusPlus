@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Solver\Solver.cpp" />
     <ClCompile Include="Source\Tokenizer\OperatorToken.cpp" />
     <ClCompile Include="Source\Parser\Parser.cpp" />
     <ClCompile Include="Source\Tokenizer\ExponentToken.cpp" />
@@ -161,6 +162,7 @@
     <ClCompile Include="Source\Tokenizer\TokenSet.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Solver\Solver.h" />
     <ClInclude Include="Source\Tokenizer\OperatorToken.h" />
     <ClInclude Include="Source\Parser\Parser.h" />
     <ClInclude Include="Source\Tokenizer\ExponentToken.h" />
