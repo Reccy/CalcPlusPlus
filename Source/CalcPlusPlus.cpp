@@ -9,6 +9,8 @@
 #define PROG_AUTHOR "Aaron Meaney"
 #define PROG_COMPILE_TIMESTAMP __TIMESTAMP__
 
+#define DEBUG_MODE false
+
 #define EXIT_STRING "exit"
 
 void print_program_intro() {
@@ -31,7 +33,6 @@ void print_program_intro() {
 std::string read_input() {
     std::cout
         << "\n"
-        << "Enter a Maths equation to solve\n"
         << "> ";
 
     std::string line;
@@ -47,31 +48,28 @@ int main_loop() {
         return false;
     }
 
-    std::cout << "Tokenizing " << input << "\n";
-
     Tokenizer t(input);
-
     TokenSet token_set = t.tokenize();
-
-    std::cout << token_set.str() << "\n";
 
     if (!token_set.is_valid()) {
         std::cout << "Invalid tokens detected." << "\n";
         return true;
     }
 
-    std::cout << "Parsing" << "\n";
-
     Parser parser(token_set);
     TokenSet parsed_token_set = parser.to_reverse_polish();
 
-    std::cout << parsed_token_set.str() << "\n";
-
-    std::cout << "Solving" << "\n";
-
     Solver solver(parsed_token_set);
 
-    std::cout << solver.solve() << "\n";
+    if (DEBUG_MODE) {
+        std::cout << "Tokenizing " << input << "\n";
+        std::cout << token_set.str() << "\n";
+        std::cout << "Parsing" << "\n";
+        std::cout << parsed_token_set.str() << "\n";
+        std::cout << "Solving" << "\n";
+    }
+
+    std::cout << "= " << solver.solve() << "\n";
 
     return true;
 }

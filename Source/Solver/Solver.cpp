@@ -39,13 +39,16 @@ NumericToken* Solver::perform_operation(OperatorToken* operator_token, NumericTo
 		result = num1 + num2;
 	}
 	else if (dynamic_cast<MinusToken*>(operator_token)) {
-		result = num1 - num2;
+		result = num2 - num1;
 	}
 	else if (dynamic_cast<MultiplyToken*>(operator_token)) {
 		result = num1 * num2;
 	}
 	else if (dynamic_cast<DivideToken*>(operator_token)) {
 		result = num2 / num1;
+	}
+	else if (dynamic_cast<ExponentToken*>(operator_token)) {
+		result = pow(num1, num2);
 	}
 	else {
 		throw std::runtime_error("Unknown operator token");

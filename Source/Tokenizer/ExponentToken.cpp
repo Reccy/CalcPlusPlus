@@ -3,3 +3,7 @@
 std::string ExponentToken::token_type_string() const {
 	return "Exponent";
 }
+
+int ExponentToken::precedence() const {
+	return 2;
+}
