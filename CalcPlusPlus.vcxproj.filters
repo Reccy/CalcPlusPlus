@@ -66,6 +66,9 @@
     <ClCompile Include="Source\Solver\Solver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Tokenizer\UnaryMinusToken.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Tokenizer\Token.h">
@@ -123,6 +126,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source\Solver\DivideByZeroException.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Tokenizer\UnaryMinusToken.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

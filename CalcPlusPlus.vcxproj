@@ -160,6 +160,7 @@
     <ClCompile Include="Source\Tokenizer\Tokenizer.cpp" />
     <ClCompile Include="Source\Tokenizer\TokenFactory.cpp" />
     <ClCompile Include="Source\Tokenizer\TokenSet.cpp" />
+    <ClCompile Include="Source\Tokenizer\UnaryMinusToken.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Solver\DivideByZeroException.h" />
@@ -181,6 +182,7 @@
     <ClInclude Include="Source\Tokenizer\Tokenizer.h" />
     <ClInclude Include="Source\Tokenizer\TokenFactory.h" />
     <ClInclude Include="Source\Tokenizer\TokenSet.h" />
+    <ClInclude Include="Source\Tokenizer\UnaryMinusToken.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

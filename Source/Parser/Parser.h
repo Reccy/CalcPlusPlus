@@ -7,6 +7,7 @@
 #include "../Tokenizer/NumericToken.h"
 #include "../Tokenizer/AddToken.h"
 #include "../Tokenizer/MinusToken.h"
+#include "../Tokenizer/UnaryMinusToken.h"
 #include "../Tokenizer/MultiplyToken.h"
 #include "../Tokenizer/DivideToken.h"
 #include "../Tokenizer/ExponentToken.h"
@@ -20,5 +21,6 @@ public:
 	Parser(TokenSet);
 	TokenSet to_reverse_polish();
 private:
+	bool is_token_unary_minus(Token*, Token*);
 	TokenSet token_set;
 };

@@ -5,5 +5,5 @@ std::string ExponentToken::token_type_string() const {
 }
 
 int ExponentToken::precedence() const {
-	return 2;
+	return 3;
 }

@@ -14,22 +14,34 @@ std::string Solver::solve() {
 		else if (dynamic_cast<OperatorToken*>(token)) {
 			OperatorToken* operator_token = dynamic_cast<OperatorToken*>(token);
 
-			if (token_stack.empty()) {
-				throw SolveException();
-			}
-
-			NumericToken* num1 = token_stack.top();
-			token_stack.pop();
-
 			NumericToken* result;
-			if (token_stack.empty()) {
+
+			if (dynamic_cast<UnaryMinusToken*>(token)) {
+				if (token_stack.empty()) {
+					throw SolveException();
+				}
+
+				NumericToken* num1 = token_stack.top();
+				token_stack.pop();
+
 				result = perform_unary_operation(operator_token, num1);
 			}
 			else {
+				if (token_stack.empty()) {
+					throw SolveException();
+				}
+
+				NumericToken* num1 = token_stack.top();
+				token_stack.pop();
+
+				if (token_stack.empty()) {
+					throw SolveException();
+				}
+
 				NumericToken* num2 = token_stack.top();
 				token_stack.pop();
 
-				result = perform_operation(operator_token, num1, num2);
+				result = perform_binary_operation(operator_token, num1, num2);
 			}
 
 			token_stack.push(result);
@@ -45,17 +57,17 @@ NumericToken* Solver::perform_unary_operation(OperatorToken* operator_token, Num
 	float num = numeric_token->to_float();
 	float result;
 
-	if (dynamic_cast<MinusToken*>(operator_token)) {
+	if (dynamic_cast<UnaryMinusToken*>(operator_token)) {
 		result = num * -1;
 	}
 	else {
-		throw std::runtime_error("Unknown operator token for unary operation");
+		throw SolveException();
 	}
 
 	return new NumericToken(std::to_string(result));
 }
 
-NumericToken* Solver::perform_operation(OperatorToken* operator_token, NumericToken* numeric_token_1, NumericToken* numeric_token_2) {
+NumericToken* Solver::perform_binary_operation(OperatorToken* operator_token, NumericToken* numeric_token_1, NumericToken* numeric_token_2) {
 	float num1 = numeric_token_1->to_float();
 	float num2 = numeric_token_2->to_float();
 	float result;

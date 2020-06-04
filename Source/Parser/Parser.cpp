@@ -14,6 +14,7 @@ TokenSet Parser::to_reverse_polish() {
 
 	int bracket_close_count = 0;
 	int bracket_open_count = 0;
+	Token* previous_token = NULL;
 
 	for (Token* token : this->token_set) {
 		if (dynamic_cast<NumericToken*>(token)) {
@@ -52,6 +53,10 @@ TokenSet Parser::to_reverse_polish() {
 		else if (dynamic_cast<OperatorToken*>(token)) {
 			OperatorToken* operator_token = dynamic_cast<OperatorToken*>(token);
 
+			if (is_token_unary_minus(operator_token, previous_token)) {
+				operator_token = new UnaryMinusToken("-");
+			}
+
 			while (!operator_stack.empty() && operator_stack.top()->precedence() >= operator_token->precedence()) {
 				Token* token_to_push = dynamic_cast<Token*>(operator_stack.top());
 
@@ -60,6 +65,8 @@ TokenSet Parser::to_reverse_polish() {
 			}
 			operator_stack.push(operator_token);
 		}
+
+		previous_token = token;
 	}
 
 	if (bracket_open_count != bracket_close_count) {
@@ -81,4 +88,20 @@ TokenSet Parser::to_reverse_polish() {
 	}
 
 	return TokenSet(output_queue);
+};
+
+bool Parser::is_token_unary_minus(Token* current_token, Token* previous_token) {
+	if (!dynamic_cast<MinusToken*>(current_token)) {
+		return false;
+	}
+
+	if (previous_token == NULL) {
+		return true;
+	}
+
+	if (dynamic_cast<UnaryMinusToken*>(previous_token) || dynamic_cast<NumericToken*>(previous_token) || dynamic_cast<BracketCloseToken*>(previous_token)) {
+		return false;
+	}
+
+	return true;
 };

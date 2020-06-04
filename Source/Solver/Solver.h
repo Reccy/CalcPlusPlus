@@ -9,6 +9,7 @@
 #include "../Tokenizer/OperatorToken.h"
 #include "../Tokenizer/AddToken.h"
 #include "../Tokenizer/MinusToken.h"
+#include "../Tokenizer/UnaryMinusToken.h"
 #include "../Tokenizer/MultiplyToken.h"
 #include "../Tokenizer/DivideToken.h"
 #include "../Tokenizer/ExponentToken.h"
@@ -21,6 +22,6 @@ public:
 private:
 	TokenSet token_set;
 	NumericToken* perform_unary_operation(OperatorToken*, NumericToken*);
-	NumericToken* perform_operation(OperatorToken*, NumericToken*, NumericToken*);
+	NumericToken* perform_binary_operation(OperatorToken*, NumericToken*, NumericToken*);
 };
 
