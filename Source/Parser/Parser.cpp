@@ -12,15 +12,22 @@ TokenSet Parser::to_reverse_polish() {
 	std::queue<Token*> output_queue;
 	std::stack<OperatorToken*> operator_stack;
 
+	int bracket_close_count = 0;
+	int bracket_open_count = 0;
+
 	for (Token* token : this->token_set) {
 		if (dynamic_cast<NumericToken*>(token)) {
 			output_queue.push(token);
 		}
 		else if (dynamic_cast<BracketOpenToken*>(token)) {
+			bracket_open_count++;
+
 			OperatorToken* operator_token = dynamic_cast<BracketOpenToken*>(token);
 			operator_stack.push(operator_token);
 		}
 		else if (dynamic_cast<BracketCloseToken*>(token)) {
+			bracket_close_count++;
+
 			OperatorToken* operator_token = dynamic_cast<BracketCloseToken*>(token);
 
 			if (!operator_stack.empty() && dynamic_cast<BracketOpenToken*>(operator_stack.top())) {
@@ -53,6 +60,11 @@ TokenSet Parser::to_reverse_polish() {
 			}
 			operator_stack.push(operator_token);
 		}
+	}
+
+	if (bracket_open_count != bracket_close_count) {
+		// Mismatched brackets
+		throw ParseException();
 	}
 
 	while (!operator_stack.empty()) {

@@ -162,6 +162,7 @@
     <ClCompile Include="Source\Tokenizer\TokenSet.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Solver\DivideByZeroException.h" />
     <ClInclude Include="Source\Solver\SolveException.h" />
     <ClInclude Include="Source\Parser\ParseException.h" />
     <ClInclude Include="Source\Solver\Solver.h" />

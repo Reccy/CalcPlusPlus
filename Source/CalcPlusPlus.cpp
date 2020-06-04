@@ -84,6 +84,10 @@ int main_loop() {
         std::cout << "Syntax Error" << "\n";
         return true;
     }
+    catch (DivideByZeroException e) {
+        std::cout << "Divide by Zero Error" << "\n";
+        return true;
+    }
     
 
     return true;

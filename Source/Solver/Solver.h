@@ -2,6 +2,7 @@
 #include <stack>
 #include <math.h>
 #include "SolveException.h"
+#include "DivideByZeroException.h"
 #include "../Tokenizer/TokenSet.h"
 #include "../Tokenizer/Token.h"
 #include "../Tokenizer/NumericToken.h"

@@ -122,5 +122,8 @@
     <ClInclude Include="Source\Solver\SolveException.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Solver\DivideByZeroException.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
