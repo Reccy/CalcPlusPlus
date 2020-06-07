@@ -22,6 +22,13 @@ std::string Token::to_string() const {
 	return ss.str();
 }
 
+std::string Token::raw_string() const {
+	std::stringstream ss;
+	ss << *this->raw_token;
+	
+	return ss.str();
+}
+
 bool Token::is_valid() {
 	return true;
 };

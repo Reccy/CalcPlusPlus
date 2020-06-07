@@ -28,6 +28,20 @@ std::string TokenSet::str() {
     return ss.str();
 };
 
+std::string TokenSet::raw_str() {
+    std::stringstream ss;
+
+    for (int i = 0; i < this->tokens.size(); i++) {
+        ss << this->tokens[i]->raw_string();
+
+        if (i < this->tokens.size() - 1) {
+            ss << " ";
+        }
+    }
+
+    return ss.str();
+};
+
 std::vector<Token*>::iterator TokenSet::begin() {
     return this->tokens.begin();
 };

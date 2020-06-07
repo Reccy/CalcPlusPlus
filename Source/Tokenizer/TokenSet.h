@@ -11,6 +11,7 @@ public:
 	TokenSet(std::vector<Token*>);
 	bool is_valid();
 	std::string str();
+	std::string raw_str();
 	std::vector<Token*>::iterator begin();
 	std::vector<Token*>::iterator end();
 private:

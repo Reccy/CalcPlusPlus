@@ -2,7 +2,7 @@
 
 Parser::Parser(TokenSet token_set) {
 	if (!token_set.is_valid()) {
-		throw std::runtime_error("Cannot parse an invalid token set");
+		throw ParseException("Cannot parse an invalid token set");
 	}
 
 	this->token_set = token_set;

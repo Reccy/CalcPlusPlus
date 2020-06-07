@@ -11,6 +11,7 @@ class Token
 public:
 	Token(const Token& token);
 	Token(std::string raw_token);
+	std::string raw_string() const;
 	std::string to_string() const;
 	virtual bool is_valid();
 protected:
