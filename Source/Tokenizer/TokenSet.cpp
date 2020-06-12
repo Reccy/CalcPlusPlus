@@ -5,7 +5,7 @@ TokenSet::TokenSet(std::queue<Token*> tokens) {
         this->tokens.push_back(tokens.front());
         tokens.pop();
     }
-}
+};
 
 TokenSet::TokenSet(std::vector<Token*> tokens) {
 	this->tokens = tokens;
@@ -48,4 +48,14 @@ std::vector<Token*>::iterator TokenSet::begin() {
 
 std::vector<Token*>::iterator TokenSet::end() {
     return this->tokens.end();
+};
+
+std::vector<Token*> TokenSet::data() {
+    std::vector<Token*> vector_copy;
+
+    for (auto item : this->tokens) {
+        vector_copy.push_back(item);
+    }
+
+    return vector_copy;
 };

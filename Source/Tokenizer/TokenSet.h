@@ -14,6 +14,7 @@ public:
 	std::string raw_str();
 	std::vector<Token*>::iterator begin();
 	std::vector<Token*>::iterator end();
+	std::vector<Token*> data();
 private:
 	std::vector<Token*> tokens;
 };
